@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=cans\ sums
+comment0.target=CanAndCash(Can,\ int)
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=mac\ sum
+comment2.target=CanAndCash\ buyCoke(DrinksMachine,\ int)
+comment3.params=mac\ sum
+comment3.target=CanAndCash\ buySpriteOrFanta(DrinksMachine,\ int)
+numComments=4

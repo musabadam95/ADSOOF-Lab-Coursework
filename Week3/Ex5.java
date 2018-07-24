@@ -1,0 +1,39 @@
+import java.util.*;
+public class Ex5
+{
+    public static void main(String[]args){
+        int[]arr={5,12,4,16,4,2,2};
+        ArrayList<Integer>alpha=new ArrayList<Integer>();
+        for(int i=0;i<arr.length;i++){
+            alpha.add(arr[i]);
+        }
+        ArrayList<Integer>bravo=check(alpha,4,7);
+        System.out.println(bravo);
+    }
+
+    public static <T> ArrayList check(ArrayList<T>alpha, T a, T b)
+    {
+        int count=0;
+        ArrayList<T>bravo= new ArrayList<T>();
+        for(int o=0;o<alpha.size();o++){
+            if(count==1){
+                bravo.add(alpha.get(o));
+            }
+            else if(alpha.get(o)==a){
+                bravo.add(b);
+                count++;
+            }else{
+                bravo.add(alpha.get(o));
+            }
+        }
+
+        for(int i =0;i<alpha.size();i++){
+            if(alpha.get(i)==a){
+                alpha.set(i, b);
+                break;
+            }
+        }  
+
+        return bravo;
+    }
+}

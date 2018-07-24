@@ -1,0 +1,26 @@
+public class Ex5
+{
+    public static void main(String[]args){
+        LispList<Integer> ls=LispList.empty();
+        ls= ls.cons(10);
+        ls=ls.cons(5);
+        ls=ls.cons(4);
+        ls=ls.cons(3);
+        ls=ls.cons(2);
+        ls=ls.cons(1);
+        System.out.println(check(ls));
+    }
+
+    public static boolean check( LispList<Integer> blarg){
+        if(blarg.tail().isEmpty()){
+            return true;
+        }else if(blarg.head()<blarg.tail().head()){
+            System.out.println("blargs");
+            return check(blarg.tail());
+        }else{
+            return false;
+        }
+
+    }
+}
+

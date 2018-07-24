@@ -1,0 +1,102 @@
+public class Dictionary
+{
+    int i=1;
+    String [][]word=new String[i][2];
+    void add(String word1, String word2){
+        String [][]words=new String[i][2];
+        for(int a=0;a<word.length;a++){
+            words[a][0]=word[a][0];
+            words[a][1]=word[a][1];     
+        }
+        words[i-1][0]=word1;
+        words[i-1][1]=word2;
+        word=words;
+        i++;
+    }
+
+    boolean contains(String blarg){
+        int p =0;     
+        while(p!=word.length-1){
+            if(blarg.equals(word[p][0])){
+                return true;
+            }
+            p++;
+        }
+        return false;
+    }
+
+    void remove (String blarg) throws NotFoundException{
+        int p=0;
+        int q=0;
+        boolean flag=false;
+        while(p!=word.length){
+            if(blarg.equals(word[p][0])){
+                flag=true;
+            }else{
+                flag=false;
+            }
+            p++;
+        }
+        p=0;
+
+        if(flag==true){
+            i=i-2;
+            String [][]words=new String[i][2];
+            while(p!=word.length){
+                if(blarg.equals(word[p][0])){
+                    flag=false;
+                }else{
+
+                    words[q][0]=word[p][0];
+                    words[q][1]=word[p][1];
+                    q++;
+                    flag=true;
+                }
+                p++;
+            }
+            word=words;
+        }
+        else{
+            throw new NotFoundException(blarg);
+        }
+    }
+
+    void print(){
+
+        for(int t=0;t<word.length;t++){
+            System.out.println(word[t][0]+" "+word[t][1]);
+        }
+    }
+
+    boolean same(String blarg1, String blarg2) throws NotFoundException{
+        int p =0;     
+        while(p!=word.length-1){
+            if(blarg1.equals(word[p][0])&&blarg2.equals(word[p][1])){
+                return true;
+            }
+            p++;
+        }
+        throw new NotFoundException(blarg1);
+    }
+
+    int size(){
+        return i-1;
+    }
+
+    String equiv(String blarg)throws NotFoundException{
+        boolean flag=false;
+        int p =0;     
+        while(p!=word.length-1){
+            if(blarg.equals(word[p][0])){
+                flag=true;
+                break;
+            }
+            p++;
+        }
+        if(flag==true){
+            return word[p][1];
+        }else{
+            throw new NotFoundException(blarg);
+        }
+    }
+}

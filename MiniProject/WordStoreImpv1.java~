@@ -1,0 +1,112 @@
+public class WordStoreImpv1 implements WordStore {
+    //creates an aray of type Cell which will hold the linkedlists
+    Cell[]map;
+    int collisions=0;
+    public WordStoreImpv1(int n){      
+        //initialise the array and store ONE linkedlist in each array cell
+        //linkedlist.first stores the string word
+        //linkedlist.next stores the next linkedlist object as type Cell
+        map=new Cell[15];
+
+    }
+
+    public void add(String word){
+        Cell list;
+        Cell temp=null;
+        //generate a Hash Index by passing the String word into the method IndexGen()
+        int index=IndexGen(word);
+        //Retirieve the Linkedlist from the array cell specified by the index 
+        list=map[index];
+        //if the linkedlist.first inside the specified array has nothing(null) then add the String word into that linkedlist
+        if (list==null){
+            list=new Cell(word);
+        }else{
+            //else add a new linkedlist to the latest linkedlist.next in the specified array constructively
+            temp=new Cell(word);
+            for(;temp!=null; temp=temp.next){
+                list = new Cell(temp.first,list);
+            }
+           collisions++;
+            //apply the newly constructed linkedlist back into the specified array
+        
+        }
+        map[index]=list;    
+    }
+
+    public void test(){
+        Cell list;
+        int i =0;
+        while(i<map.length){
+            list=map[i];
+            for(Cell ptr=list; ptr!=null; ptr=ptr.next){
+                System.out.println(ptr.first);
+            }
+            i++;
+        }
+        System.out.println(collisions);
+    }
+
+    public int count(String word){
+        int count=0;
+        Cell list;      
+        list=map[IndexGen(word)];
+        for(; list!=null; list=list.next){
+            if(word.equals(list.first)){
+                count++;
+            }
+        }    
+        return count;
+    }
+
+    public void remove(String word){
+        Cell list;
+        list=map[IndexGen(word)];
+        if(null==list){
+        }else{
+            Cell temp=null;
+            temp=list;
+            if(temp.first.equals(word)){
+                temp=temp.next;
+            }else{
+                for(;temp.next!=null; temp=temp.next){     
+                    if(temp.next.first.equals(word)){
+                        temp.next=temp.next.next;
+                        break;
+                    }
+                }
+            }
+            map[IndexGen(word)]=temp;
+        }
+    }
+
+    public int IndexGen(String word){
+        //creates a hash based on the number of vowels in the String word
+        int count=0;
+        // int count =word.length()%map.length;
+        for (int i=0;i<word.length();i++){
+            char letter=word.charAt(i);
+            count=count+(int)letter;
+        }
+        count=count%map.length;
+        System.out.println(count);
+        return count;
+    }
+
+    private class Cell 
+    {
+        String first;
+        Cell next;//holds the next linkedlist or if there isnt another linkedlist then it holds null which means the end of the linkedlist
+
+        Cell(String f)
+        {
+            first=f;
+            next=null;
+        }
+
+        Cell(String f,Cell n)
+        {
+            first=f;
+            next=n;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+public class Ex7
+{
+    public static void main(String[]args){
+        LispList<Integer> ls=LispList.empty();
+        ls= ls.cons(6);
+        ls=ls.cons(5);
+        ls=ls.cons(4);
+        ls=ls.cons(3);
+        ls=ls.cons(2);
+        ls=ls.cons(1);
+        int a =2;
+        a=a+1;//due to layout of positions
+        System.out.println(check(ls,a));
+
+    }
+
+    public static LispList<Integer>check(LispList<Integer> blarg,int a){
+        LispList<Integer> alpha=LispList.empty();
+
+        if(blarg.isEmpty()){
+            System.out.println(alpha+"add");
+            return alpha;
+        }else{
+            System.out.println(a);
+            a--;
+            int b=blarg.head();
+            System.out.println("blarg"+blarg);
+            alpha=check(blarg.tail(),a);
+            if(0==a){
+                System.out.println("ignore"+alpha);
+                return alpha;
+            }else{
+                System.out.println(alpha+"add");
+                return alpha.cons(b);
+            }
+
+        }
+
+    }
+}

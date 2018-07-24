@@ -1,0 +1,10 @@
+public class Joinz implements Joiner<String>
+{
+
+    public String join(T str1,T str2){
+    String joint=str1+str2;
+    
+    return joint;
+    }
+    
+}

@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=word1\ word2
+comment0.target=void\ add(java.lang.String,\ java.lang.String)
+comment1.params=blarg
+comment1.target=boolean\ contains(java.lang.String)
+comment2.params=blarg
+comment2.target=void\ remove(java.lang.String)
+comment3.params=
+comment3.target=void\ print()
+comment4.params=blarg1\ blarg2
+comment4.target=boolean\ same(java.lang.String,\ java.lang.String)
+comment5.params=
+comment5.target=int\ size()
+comment6.params=blarg
+comment6.target=java.lang.String\ equiv(java.lang.String)
+numComments=7

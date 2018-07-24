@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment1.params=can1\ can2\ can3
+comment1.target=void\ drinking(Can,\ Can,\ Can)
+numComments=2

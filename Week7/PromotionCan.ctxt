@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=cont
+comment0.target=PromotionCan(java.lang.String)
+comment1.params=cont\ PMessage
+comment1.target=PromotionCan(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=boolean\ isWinner()
+numComments=3

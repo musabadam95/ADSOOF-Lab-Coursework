@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment1.params=tran\ a
+comment1.target=java.util.ArrayList\ applyConst(Transformer,\ java.util.ArrayList)
+comment2.params=tran\ a
+comment2.target=void\ applyDest(Transformer,\ java.util.ArrayList)
+comment3.params=tran\ lp1
+comment3.target=LispList\ transformList(Transformer,\ LispList)
+numComments=4

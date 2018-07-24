@@ -1,0 +1,38 @@
+public class Test
+{
+
+    public static void main(String[]args){
+        int i=0;
+
+        CanFactory Fanta=new CanFactory(0.4);
+        PromotionCan can;
+        Can currentCan;
+        Fanta.switcher();
+        currentCan=Fanta.makeCan("Fanta");
+         if(currentCan instanceof PromotionCan){
+               System.out.println("PromotionCan");
+        can=(PromotionCan)currentCan;
+        can.drink();
+          System.out.println(can.isWinner());
+        }else{
+        currentCan.drink();
+        System.out.println("drank normal can");
+        }
+         
+        ExDrinksMachine a=new ExDrinksMachine(10,5,5);
+        a.insert(40);
+        currentCan=a.pressCoke();
+
+        if(currentCan instanceof PromotionCan){
+            System.out.println("PromotionCan");
+            can=(PromotionCan)currentCan;
+            can.drink();
+            System.out.println(can.isWinner());
+        }else{
+            currentCan.drink();
+            System.out.println("drank normal can");
+        }
+
+        
+    }
+}

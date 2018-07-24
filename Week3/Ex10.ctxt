@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment1.params=alpha\ t
+comment1.target=java.util.ArrayList\ check(java.util.ArrayList,\ java.lang.Object)
+comment2.params=alpha\ t
+comment2.target=java.util.ArrayList\ checkAli(java.util.ArrayList,\ int)
+numComments=3

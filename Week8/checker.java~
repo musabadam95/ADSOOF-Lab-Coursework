@@ -1,0 +1,5 @@
+interface checker<T>
+
+{
+public boolean checks();
+}

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=com\ Macs
+comment0.target=CanBuyer(int,\ java.util.ArrayList)
+comment1.params=money
+comment1.target=CanAndCash\ buyCoke(int)
+comment2.params=money
+comment2.target=CanAndCash\ buyFanta(int)
+numComments=3

@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+public class ExDrinksMachine extends DrinksMachine
+{
+    protected CanFactory fizzy;
+
+    public ExDrinksMachine(int p,int c,int f)
+    {
+        super(p);
+        fizzy=new CanFactory(0.4);
+        fizzy.switcher();
+        for(int i=0; i<c; i++)
+            loadCoke(fizzy.makeCan("Coke"));
+        for(int i=0; i<f; i++)
+            loadFanta(fizzy.makeCan("Fanta"));
+    }
+
+}

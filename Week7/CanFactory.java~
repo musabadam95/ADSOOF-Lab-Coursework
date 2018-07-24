@@ -1,0 +1,33 @@
+import java.util.*;
+import java.math.*;
+public class CanFactory
+{
+    private double proportion;
+    protected boolean switchs=false;
+    public CanFactory(double prop)
+    {
+        proportion=prop;
+    }
+
+    public void switcher(boolean lever){
+        switchs=lever;
+    } 
+
+    public Can makeCan(String cont){
+        PromotionCan pCan;
+        Can can;
+        if(switchs==true){
+            double random=0;
+            random= Math.random() /proportion;
+
+            if(random>1){
+                pCan=new PromotionCan(cont,"you won");
+            }else{
+            pCan=new PromotionCan(cont);
+            }
+            return pCan;
+        }else {
+            return can=new Can(cont);
+        }
+    }
+}

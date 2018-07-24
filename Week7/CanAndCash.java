@@ -1,0 +1,79 @@
+import java.util.*;
+import javax.swing.*;
+public class CanAndCash
+{
+    protected Can can;
+    protected int sum;
+    public CanAndCash(Can cans,int sums)
+    {
+        can=cans;
+        sum=sums;
+    }
+
+    public static void main(String[]args){
+        //Checking coke
+        CanAndCash a;
+        DrinksMachine af=new DrinksMachine(5,5,5);
+        a=buyCoke(af,100);
+        System.out.println("Remaining balance left "+" "+a.sum);
+        System.out.println(a.can.toString());
+        //checking fanta
+        a=buySpriteOrFanta(af,50);
+        System.out.println("Remaining balance left "+" "+a.sum);
+        System.out.println(a.can.toString());
+        //Checking sprite
+        ExtDrinksMachine1 exMac=new ExtDrinksMachine1(10,10,10,10);
+        a=buySpriteOrFanta(exMac,50);
+        System.out.println("Remaining balance left "+" "+a.sum);
+        System.out.println(a.can.toString());
+        ////////////////////////////////////////////////
+        // CanBuyer Class
+        ////////////////////////////////////////////////
+        ArrayList<DrinksMachine>Machines=new ArrayList<DrinksMachine>();
+        DrinksMachine mac1=new DrinksMachine(10,10,10);
+        Machines.add(mac1);
+        mac1=new DrinksMachine(5,10,10);
+        Machines.add(mac1);
+        ///////////
+        CanBuyer robot=new CanBuyer(2,Machines);
+        a=robot.buyFanta(Integer.parseInt(JOptionPane.showInputDialog(null,"")));
+        System.out.println("BLARGS"+a.can.toString());
+        //////////////////////////////////
+        //ExCanBuyer
+        /////////////////////////////////
+        ArrayList<DrinksMachine>ExMachines=new ArrayList<DrinksMachine>();
+        DrinksMachine Exmac1=new DrinksMachine(10,10,10);
+        ExMachines.add(Exmac1);
+       ExtDrinksMachine1 Exmac2=new ExtDrinksMachine1(5,10,10,10);
+        ExMachines.add(Exmac2);
+        ExCanBuyer Exrobot=new ExCanBuyer(2,ExMachines);
+        a=Exrobot.buySprite(Integer.parseInt(JOptionPane.showInputDialog(null,"")));
+        System.out.println("BLARGS"+a.can.toString());
+    }
+
+    public static CanAndCash buyCoke(DrinksMachine mac,int sum){
+        Can Mcan;
+        CanAndCash alpha;
+        mac.insert(sum);
+        Mcan=mac.pressCoke();
+        int change=mac.pressChange();
+        return alpha=new CanAndCash(Mcan,change);
+    }
+
+    public static CanAndCash buySpriteOrFanta(DrinksMachine mac,int sum){
+        Can Mcan;
+        CanAndCash alpha;
+        if(mac instanceof ExtDrinksMachine1){
+            ExtDrinksMachine1 exMac=(ExtDrinksMachine1)mac;
+            exMac.insert(sum);
+            Mcan=exMac.pressSprite();
+            int change=exMac.pressChange();
+            return alpha=new CanAndCash(Mcan,change);
+        }else{
+            mac.insert(sum);
+            Mcan=mac.pressFanta();
+            int change=mac.pressChange();
+            return alpha=new CanAndCash(Mcan,change);
+        }
+    }
+}

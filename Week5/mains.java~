@@ -1,0 +1,22 @@
+public class mains
+{
+    public static void main(String[]args){
+        Dictionary alpha=new Dictionary();        
+        alpha.add("Blarg","Me");
+        alpha.add("Fish","Saj");
+        alpha.add("hassan","scukm");
+        System.out.println(alpha.contains("Blarg"));
+        for(int a =0;a<word.length;a++){            
+            System.out.println(word[a][0]+" "+word[a][1]);
+        }
+        try{
+            alpha.remove("Blargz");
+        }catch( NotFoundException e){
+            System.out.println("eror");
+        }
+        for(int z =0;z<word.length;z++){            
+            System.out.println("1"+word[z][0]);
+            System.out.println("2"+word[z][1]);
+        }
+    }
+}

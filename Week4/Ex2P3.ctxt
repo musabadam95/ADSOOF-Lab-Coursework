@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment1.params=blarg\ count
+comment1.target=int\ check(LispList,\ int)
+comment2.params=blargs
+comment2.target=int\ checkz(LispList)
+numComments=3
